@@ -2,6 +2,7 @@
 #include <string>
 #include <stdexcept>
 #include <iomanip>
+#include <limits>
 
 using namespace std;
 
@@ -209,7 +210,7 @@ void displayHeader(const string& title, HeaderType type) {
 // Pause screen until user presses Enter
 void pauseScreen() {
   cout << "\nPress Enter to continue...";
-  cin.ignore();
+  cin.ignore(numeric_limits<streamsize>::max(), '\n'); // ignores entire line
 }
 
 // Function to validate input and convert to int
