@@ -76,92 +76,95 @@ int main() {
 
     switch (menuChoice) {
     case 1:
-    displayHeader(" Insert Data to Array Selected ", SUB_MENU);
-    inputArray(arraySize);
-    pauseScreen();
-    break;
+      displayHeader(" Insert Data to Array Selected ", SUB_MENU);
+      inputArray(arraySize);
+      pauseScreen();
+      break;
 
     case 2:
-    displayHeader(" Display Array Selected ", SUB_MENU);
-    if (arraySize == 0) {
-      cerr << "❌ No array data! Please insert data first (Option 1).\n";
-    }
-    else {
-      displayArray(arraySize);
-    }
-    pauseScreen();
-    break;
+      displayHeader(" Display Array Selected ", SUB_MENU);
+      if (arraySize == 0) {
+        cerr << "❌ No array data! Please insert data first (Option 1).\n";
+      }
+      else {
+        displayArray(arraySize);
+      }
+      pauseScreen();
+      break;
 
     case 3:
-    displayHeader(" Find Sum of Array Elements Selected ", SUB_MENU);
-    if (arraySize == 0) {
-      cerr << "❌ No array data! Please insert data first (Option 1).\n";
-    }
-    else {
-      findSum(arraySize, sum);
-    }
-    pauseScreen();
-    break;
+      displayHeader(" Find Sum of Array Elements Selected ", SUB_MENU);
+      if (arraySize == 0) {
+        cerr << "❌ No array data! Please insert data first (Option 1).\n";
+      }
+      else {
+        findSum(arraySize, sum);
+      }
+      pauseScreen();
+      break;
 
     case 4:
-    displayHeader(" Find Average of Array Elements Selected ", SUB_MENU);
-    if (arraySize == 0) {
-      cerr << "❌ No array data! Please insert data first (Option 1).\n";
-    }
-    else {
-      findAverage(arraySize, sum);
-    }
-    pauseScreen();
-    break;
+      displayHeader(" Find Average of Array Elements Selected ", SUB_MENU);
+      if (arraySize == 0) {
+        cerr << "❌ No array data! Please insert data first (Option 1).\n";
+      }
+      else {
+        findAverage(arraySize, sum);
+      }
+      pauseScreen();
+      break;
 
     case 5:
-    displayHeader(" Find Min & Max of Array Elements Selected ", SUB_MENU);
-    if (arraySize == 0) {
-      cerr << "❌ No array data! Please insert data first (Option 1).\n";
-    }
-    else {
-      findMinMax(arraySize);
-    }
-    pauseScreen();
-    break;
+      displayHeader(" Find Min & Max of Array Elements Selected ", SUB_MENU);
+      if (arraySize == 0) {
+        cerr << "❌ No array data! Please insert data first (Option 1).\n";
+      }
+      else {
+        findMinMax(arraySize);
+      }
+      pauseScreen();
+      break;
+
     case 6:
-    displayHeader(" Reverse Array Selected ", SUB_MENU);
-    if (arraySize == 0) {
-      cerr << "❌ No array data! Please insert data first (Option 1).\n";
-    }
-    else {
-      reverseArray(arraySize);
-    }
-    pauseScreen();
-    break;
+      displayHeader(" Reverse Array Selected ", SUB_MENU);
+      if (arraySize == 0) {
+        cerr << "❌ No array data! Please insert data first (Option 1).\n";
+      }
+      else {
+        reverseArray(arraySize);
+      }
+      pauseScreen();
+      break;
+
     case 7:
-    displayHeader(" Sort Array Selected ", SUB_MENU);
-    if (arraySize == 0) {
-      cerr << "❌ No array data! Please insert data first (Option 1).\n";
-    }
-    else {
-      sortArray(arraySize);
-    }
-    pauseScreen();
-    break;
+      displayHeader(" Sort Array Selected ", SUB_MENU);
+      if (arraySize == 0) {
+        cerr << "❌ No array data! Please insert data first (Option 1).\n";
+      }
+      else {
+        sortArray(arraySize);
+      }
+      pauseScreen();
+      break;
+
     case 8:
-    displayHeader(" Search for an Element Selected ", SUB_MENU);
-    if (arraySize == 0) {
-      cerr << "❌ No array data! Please insert data first (Option 1).\n";
-    }
-    else {
-      searchArray(arraySize);
-    }
-    pauseScreen();
-    break;
+      displayHeader(" Search for an Element Selected ", SUB_MENU);
+      if (arraySize == 0) {
+        cerr << "❌ No array data! Please insert data first (Option 1).\n";
+      }
+      else {
+        searchArray(arraySize);
+      }
+      pauseScreen();
+      break;
 
     case 9:
-    cout << "\nExiting the program... Goodbye!\n" << endl;
-    break;
+      cout << "\nExiting the program... Goodbye!\n" << endl;
+      break;
 
     default:
-    cout << "Invalid choice. Please try again." << endl;
-    break;
+      cout << "Invalid choice. Please try again." << endl;
+      break;
     }
 
   } while (menuChoice != MAX_MENU_OPTIONS);
@@ -209,7 +212,7 @@ void pauseScreen() {
   cin.ignore();
 }
 
-// Validate menu input and convert to int
+// Function to validate input and convert to int
 void validateInput(const string& input, int& number, int minValue, int maxValue) {
   size_t pos; // position of first non-numeric character
   number = stoi(input, &pos); // convert string to int
@@ -225,7 +228,7 @@ void validateInput(const string& input, int& number, int minValue, int maxValue)
   }
 }
 
-// Trim whitespace from input
+// Function to trim whitespace from input
 string trim(const string& str) {
   // find first and last non-whitespace characters
   size_t first = str.find_first_not_of(" \t\n\r");
@@ -236,7 +239,7 @@ string trim(const string& str) {
   return str.substr(first, last - first + 1);
 }
 
-// Convert string to lowercase
+// Function to convert string to lowercase
 string toLower(const string& str) {
   string result = str;
   for (char& c : result) {
@@ -245,7 +248,7 @@ string toLower(const string& str) {
   return result;
 }
 
-// Handle array input 
+// Function to handle array size input and data from user
 void inputArray(int& arraySize) {
   string sizeInput, elemInput;
 
@@ -312,7 +315,7 @@ void inputArray(int& arraySize) {
   }
 }
 
-// Handle array display
+// Function to handle array display
 void displayArray(int arraySize) {
   cout << "Array Contents:\n";
   for (int i = 0; i < arraySize; i++) {
@@ -320,7 +323,7 @@ void displayArray(int arraySize) {
   }
 }
 
-// Handle finding the sum of array elements
+// Function to handle finding the sum of array elements
 void findSum(int arraySize, int& sum) {
   displayArray(arraySize); // display array contents
   sum = 0; // reset sum before calculation
@@ -332,15 +335,16 @@ void findSum(int arraySize, int& sum) {
   cout << "Sum of array elements: " << sum << "\n";
 }
 
-// Handle finding the average of array elements
+// Function to handle finding the average of array elements
 void findAverage(int arraySize, int& sum) {
   findSum(arraySize, sum); // always recalculate fresh sum
   double average = static_cast<double>(sum) / arraySize; // cast sum to double for accurate average calculation
   cout << fixed << setprecision(2) << "Average of array elements: " << average << "\n"; // display average with 2 decimal places
 }
 
+// Function to handle finding the minimum and maximum of array elements
 void findMinMax(int arraySize) {
-  displayArray(arraySize);
+  displayArray(arraySize); // display array contents
 
   // initialize min and max to first element
   int min = numbersArr[0];
@@ -349,10 +353,10 @@ void findMinMax(int arraySize) {
   // find min and max in array
   for (int i = 1; i < arraySize; i++) {
     if (numbersArr[i] < min) {
-      min = numbersArr[i]; // update min smaller element found
+      min = numbersArr[i]; // update min if smaller element found
     }
     if (numbersArr[i] > max) {
-      max = numbersArr[i]; // update max larger element found
+      max = numbersArr[i]; // update max if larger element found
     }
   }
 
@@ -360,8 +364,9 @@ void findMinMax(int arraySize) {
   cout << "Maximum element: " << max << "\n";
 }
 
+// Function to handle reversing the array
 void reverseArray(int arraySize) {
-  displayArray(arraySize);
+  displayArray(arraySize); // show original array
 
   // reverse the array in place
   for (int i = 0; i < arraySize / 2; i++) {
@@ -372,6 +377,7 @@ void reverseArray(int arraySize) {
   displayArray(arraySize); // show reversed array
 }
 
+// Function to handle sorting the array
 void sortArray(int arraySize) {
   displayArray(arraySize); // show original array
 
@@ -416,9 +422,9 @@ void sortArray(int arraySize) {
   displayArray(arraySize); // show sorted array
 }
 
-
+// Function to handle searching for an element in the array
 void searchArray(int arraySize) {
-  displayArray(arraySize);
+  displayArray(arraySize); // display array contents
 
   string searchInput;
   int target;
@@ -442,7 +448,7 @@ void searchArray(int arraySize) {
     }
   }
 
-  // seacth for target element in array
+  // search for target element in array
   bool found = false;
   for (int i = 0; i < arraySize; i++) {
     if (numbersArr[i] == target) {
